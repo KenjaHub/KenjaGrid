@@ -1,0 +1,23 @@
+# KenjaGrid
+
+> KenjaGrid is a fast, open-source spreadsheet app made by KenjaHub and built in pure Rust: the familiar ribbon, formula bar, Name Box, sheet tabs, fill handle and keyboard shortcuts, native XLSX round-trip (styles, themes, formulas including dynamic arrays, tables, conditional formats, validation, comments, hyperlinks, charts, pictures, sparklines, pivot tables and print settings), 500+ worksheet functions with LET and LAMBDA, pivot tables, seventeen chart types, conditional formatting, print and PDF export — plus a built-in AI assistant that answers questions about the active workbook over any OpenAI-compatible endpoint the user configures (OpenAI, DeepSeek, Qwen, or a local Ollama/LM Studio), read-only by default. Private by default: no accounts, no analytics, no tracking; workbooks never leave the machine. Agent-native: an MCP server, a CLI and a local-only JSON control channel reach every command. Free under MIT or Apache-2.0; runs natively on macOS, Windows, Linux and BSD, and in the browser via WebAssembly.
+
+Key facts:
+
+- Platforms: native macOS (Apple silicon + Intel, signed and notarized), Windows (x64/arm64/x86, code-signed), Linux (AppImage, Flatpak, deb, rpm, tarball; x86_64 and ARM64), FreeBSD, and the web via WebAssembly. Downloads on GitHub Releases.
+- Familiar workflow: ribbon with keytips, formula bar, Name Box, sheet tabs, fill handle, point-mode formula entry with coloured references, Format Cells, Paste Special, sort and AutoFilter, Flash Fill, data validation, outlining and subtotals, dark mode.
+- Calculation: 500+ worksheet functions, dynamic arrays with spilling, LET, LAMBDA, MAP, REDUCE, SCAN, BYROW, BYCOL, MAKEARRAY, structured table references, a comprehensive number-format language; dependency-graph engine with incremental recalculation and copy-on-write undo; virtualised grid.
+- Analysis: pivot tables with field list, filters, layouts, date grouping and show-values-as; seventeen chart types with a Chart Design tab and Format pane; data bars, colour scales, icon sets, sparklines.
+- Files: XLSX is the native format and round-trips everything above; reads and writes CSV and TSV; opens legacy 97-2003 .xls workbooks (values, formulas, number formats); imports worksheet data from XLSB and ODS; page break preview, printing and PDF export.
+- AI assistant: read-only by default — inspection tools include workbook/sheet summaries, cell reads and text search; edit tools exist only in the app's explicit edit modes; the conversation lives in memory only; the browser build has no AI. Bring your own model: any OpenAI-compatible endpoint; the API key stays on the user's machine and is sent only to the configured base URL. The app is fully functional without AI.
+- Privacy: everything runs locally; the app initiates no network traffic of its own — the only traffic ever sent is an AI-chat request the user triggered, delivered straight to the endpoint they configured. No accounts, no analytics, no telemetry, no tracking. Source is public, so all of this is verifiable.
+- Automation: every action is a command with a stable id and undo — drivable from the MCP server, the CLI and a local-only JSON control channel (127.0.0.1, opt-in).
+- Vendor: KenjaHub — https://github.com/KenjaHub · App repository: https://github.com/koihuang/KenjaGrid · Support: https://github.com/koihuang/KenjaGrid/issues · Email: kenjasoft@kofukuai.com
+
+## Pages
+
+- [English landing page](https://kenjagrid.kofukuai.com/): workflow, features, privacy and FAQ.
+- [简体中文落地页](https://kenjagrid.kofukuai.com/zh.html): 工作流、功能、隐私与常见问题。
+- [日本語ページ](https://kenjagrid.kofukuai.com/ja.html): ワークフロー、機能、プライバシーと FAQ。
+- [Privacy policy](https://kenjagrid.kofukuai.com/privacy.html): full policy (nothing collected; trilingual Markdown copy in the repository as privacy.md).
+- [Sitemap](https://kenjagrid.kofukuai.com/sitemap.xml): all pages with en/zh/ja hreflang alternates.

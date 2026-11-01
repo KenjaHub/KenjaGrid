@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KenjaGrid — Open-Source Spreadsheet App · XLSX, 500+ Functions, Pivot Tables &amp; a Workbook AI</title>
+<meta name="description" content="KenjaGrid is a fast, open-source spreadsheet app for macOS, Windows, Linux, BSD and the web: native XLSX round-trip, 500+ functions, dynamic arrays, pivot tables and charts — plus a built-in AI assistant that answers questions about your workbook. No accounts, no telemetry, no tracking.">
+<link rel="canonical" href="https://kenjagrid.kofukuai.com/">
+<link rel="alternate" hreflang="en" href="https://kenjagrid.kofukuai.com/">
+<link rel="alternate" hreflang="zh-Hans" href="https://kenjagrid.kofukuai.com/zh.html">
+<link rel="alternate" hreflang="ja" href="https://kenjagrid.kofukuai.com/ja.html">
+<link rel="alternate" hreflang="x-default" href="https://kenjagrid.kofukuai.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KenjaGrid">
+<meta property="og:title" content="KenjaGrid — Open-Source Spreadsheet App">
+<meta property="og:description" content="The ribbon, shortcuts and formulas you know, native XLSX round-trip, pivot tables and charts — on macOS, Windows, Linux, BSD and the web — plus a built-in AI assistant that answers questions about your workbook. Nothing collected.">
+<meta property="og:url" content="https://kenjagrid.kofukuai.com/">
+<meta property="og:image" content="https://kenjagrid.kofukuai.com/assets/hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="KenjaGrid — Open-Source Spreadsheet App">
+<meta name="twitter:description" content="Native XLSX, 500+ functions, dynamic arrays, pivot tables and charts — plus a workbook AI assistant. Free and open source. Nothing collected.">
+<meta name="twitter:image" content="https://kenjagrid.kofukuai.com/assets/hero.png">
+<meta name="theme-color" content="#0e0c10">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e0c10'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-weight='700' fill='%23f0b429' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "KenjaGrid",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "macOS, Windows, Linux, BSD, Web browser",
+  "description": "Fast, open-source spreadsheet app built in Rust: the familiar ribbon, formula bar and shortcuts, native XLSX round-trip (styles, formulas including dynamic arrays, tables, conditional formats, charts, sparklines and pivot tables), 500+ worksheet functions, LET and LAMBDA, sort and AutoFilter, Flash Fill, data validation, print and PDF export — plus a built-in AI assistant that answers questions about the active workbook over any OpenAI-compatible endpoint you configure. Private by default: no accounts, no analytics, no tracking, and an agent-native automation layer (MCP server, CLI, local JSON control channel).",
+  "url": "https://kenjagrid.kofukuai.com/",
+  "author": { "@type": "Organization", "name": "KenjaHub", "url": "https://github.com/KenjaHub" },
+  "license": "https://opensource.org/licenses/MIT",
+  "featureList": [
+    "Familiar spreadsheet workflow: ribbon, formula bar, Name Box, sheet tabs, fill handle, Format Cells, Paste Special, keyboard shortcuts and keytips",
+    "500+ worksheet functions with dynamic arrays and spilling, LET, LAMBDA, MAP, REDUCE, SCAN, BYROW, BYCOL and MAKEARRAY",
+    "Native XLSX round-trip: styles, themes, formulas, tables, conditional formats, validation, comments, hyperlinks, charts, pictures, sparklines, pivot tables and print settings; CSV and TSV; legacy .xls values; XLSB and ODS worksheet-data import",
+    "Pivot tables with field list, filters, layouts, date grouping and show-values-as; seventeen chart types with a Chart Design tab and Format pane",
+    "Conditional formatting: data bars, colour scales and icon sets; sparklines; number-format language; outlining and subtotals",
+    "Fast engine: copy-on-write workbooks, incremental recalculation, virtualised grid",
+    "Built-in AI assistant that answers questions about the active workbook, read-only by default, over your own OpenAI-compatible endpoint (OpenAI, DeepSeek, Qwen, Ollama, LM Studio)",
+    "Agent-native: MCP server, CLI and a local-only JSON control channel reach every command",
+    "Free and open source under MIT or Apache-2.0; runs on macOS, Windows, Linux, BSD and the web"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does KenjaGrid upload my workbooks anywhere?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Creating, editing, calculating, formatting, charting and exporting all run locally on your machine. The app initiates no network traffic of its own — the only traffic ever sent is an AI-chat request that you triggered, delivered straight to the endpoint you configured. And because KenjaGrid is open source, you can verify all of this in the public code." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can the AI assistant edit my workbook?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Not by default. The assistant answers questions about the active workbook through inspection tools — a workbook or sheet summary, cell reads, text search — and read-only is the default. It can only modify anything after you explicitly switch to one of the edit modes. The conversation lives in memory only, and in the browser build the AI assistant is unavailable." }
+    },
+    {
+      "@type": "Question",
+      "name": "Which AI models can I use?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Any OpenAI-compatible endpoint you configure yourself: OpenAI, DeepSeek, Qwen, or a local server such as Ollama or LM Studio. Your API key is stored on your machine and is sent only to the base URL you configured, only when you send a message. The app is fully functional without any AI." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can KenjaGrid open my Excel files?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. XLSX is the native format: styles, themes, formulas (including dynamic arrays), tables, conditional formats, validation, comments, hyperlinks, charts, pictures, sparklines, pivot tables and print settings all round-trip. It also reads and writes CSV and TSV, opens legacy 97-2003 .xls workbooks with their values, formulas and number formats, and imports worksheet data from XLSB and ODS files." }
+    },
+    {
+      "@type": "Question",
+      "name": "Which platforms does KenjaGrid run on?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Native macOS (Apple silicon and Intel, signed and notarized), Windows (x64, arm64 and x86, code-signed), Linux (AppImage, Flatpak, deb, rpm and tarball on x86_64 and ARM64), FreeBSD, and the web via WebAssembly." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is KenjaGrid really free?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — free and open source under the MIT or Apache-2.0 licence, your choice. No subscription, no licence server, no telemetry. It is in active development (alpha): the core spreadsheet workflow works end to end, and compatibility depth keeps growing in the open, with a public roadmap." }
+    }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --ink:#0e0c10;
+  --ink-2:#16131a;
+  --ink-3:#1e1a23;
+  --line:rgba(240,180,41,.14);
+  --line-2:rgba(255,255,255,.08);
+  --amber:#f0b429;
+  --amber-soft:#f6c453;
+  --paper:#f3efe6;
+  --paper-dim:#b7b2a6;
+  --paper-faint:#7d7971;
+  --serif:"Fraunces",Georgia,serif;
+  --sans:"Instrument Sans",-apple-system,"Helvetica Neue",sans-serif;
+  --mono:"Spline Sans Mono","SF Mono",Menlo,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--paper);
+  font-family:var(--sans);
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:3;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(240,180,41,.07), transparent 60%),
+    radial-gradient(900px 700px at 100% 100%, rgba(120,80,200,.05), transparent 55%);
+}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:2;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+::selection{background:var(--amber);color:var(--ink)}
+
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px;position:relative;z-index:4}
+
+/* ---------- top bar ---------- */
+.bar{
+  position:sticky;top:0;z-index:10;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  background:rgba(14,12,16,.82);
+  border-bottom:1px solid var(--line);
+}
+.bar .wrap{display:flex;align-items:center;gap:22px;height:60px}
+.logo{font-family:var(--serif);font-weight:700;font-size:21px;letter-spacing:.01em;color:var(--paper);text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo .dot{width:9px;height:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 14px rgba(240,180,41,.8)}
+.bar nav{margin-left:auto;display:flex;gap:26px;align-items:center}
+.bar nav a{color:var(--paper-dim);text-decoration:none;font-size:14.5px;letter-spacing:.02em;transition:color .18s}
+.bar nav a:hover{color:var(--amber-soft)}
+.lang-menu{position:relative;font-family:var(--mono);font-size:12.5px}
+.lang-menu summary{list-style:none;cursor:pointer;user-select:none;color:var(--paper-faint);border:1px solid var(--line-2);padding:5px 11px;border-radius:99px;display:inline-flex;align-items:center;gap:7px;transition:all .18s}
+.lang-menu summary::-webkit-details-marker{display:none}
+.lang-menu summary::after{content:"";width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:4px solid currentColor;margin-top:2px}
+.lang-menu summary:hover,.lang-menu[open] summary{border-color:var(--amber);color:var(--amber)}
+.lang-pop{position:absolute;right:0;top:calc(100% + 10px);background:var(--ink-3);border:1px solid var(--line-2);border-radius:12px;padding:6px;display:flex;flex-direction:column;min-width:132px;z-index:60;box-shadow:0 18px 50px rgba(0,0,0,.55)}
+.lang-pop a{color:var(--paper-dim);text-decoration:none;padding:8px 12px;border-radius:8px;font-size:12.5px;white-space:nowrap;transition:color .15s,background .15s}
+.lang-pop a:hover{background:rgba(240,180,41,.09);color:var(--amber)}
+.lang-pop a[aria-current]{color:var(--amber);pointer-events:none}
+
+/* ---------- hero ---------- */
+.hero{padding:96px 0 40px;position:relative}
+.hero .tc{
+  font-family:var(--mono);font-size:12.5px;color:var(--amber);
+  letter-spacing:.14em;text-transform:uppercase;
+  display:flex;align-items:center;gap:14px;margin-bottom:26px;
+}
+.hero .tc::after{content:"";height:1px;flex:0 0 72px;background:linear-gradient(90deg,var(--amber),transparent)}
+.hero h1{
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(44px,6.4vw,84px);
+  line-height:1.02;letter-spacing:-.015em;
+  max-width:15ch;
+}
+.hero h1 em{font-style:italic;color:var(--amber);font-weight:500}
+.hero .sub{margin-top:26px;max-width:60ch;color:var(--paper-dim);font-size:19px}
+.hero .sub strong{color:var(--paper);font-weight:600}
+.cta-row{margin-top:38px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.cta-soon{
+  display:inline-flex;align-items:center;gap:10px;
+  border:1px solid var(--line);border-radius:12px;
+  padding:15px 22px;font-size:16.5px;font-weight:600;color:var(--paper);
+  background:linear-gradient(180deg,rgba(240,180,41,.10),rgba(240,180,41,.03));
+  text-decoration:none;transition:border-color .2s;
+}
+.cta-soon:hover{border-color:var(--amber)}
+.cta-soon .tick{width:9px;height:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 12px rgba(240,180,41,.8);animation:blink 1.6s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.cta-note{font-family:var(--mono);font-size:12.5px;color:var(--paper-faint)}
+
+/* document window w/ cycling captions */
+.screen{
+  margin:64px 0 0;position:relative;border-radius:18px;overflow:hidden;
+  border:1px solid var(--line-2);
+  background:linear-gradient(180deg,#191521,#0d0b11);
+  box-shadow:0 40px 120px rgba(0,0,0,.55), 0 0 0 1px rgba(240,180,41,.06);
+}
+.screen img{display:block;width:100%;height:auto;opacity:.92}
+.screen .cap{
+  position:absolute;left:0;right:0;bottom:34px;text-align:center;pointer-events:none;
+}
+.screen .cap span{
+  display:inline-block;background:rgba(8,6,10,.78);border-radius:8px;
+  padding:10px 18px;font-size:clamp(14px,2vw,19px);font-weight:500;
+  color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.9);
+  opacity:0;animation:capCycle 12s infinite;
+}
+.screen .cap span:nth-child(2){animation-delay:3s}
+.screen .cap span:nth-child(3){animation-delay:6s}
+.screen .cap span:nth-child(4){animation-delay:9s;color:var(--amber-soft)}
+@keyframes capCycle{0%{opacity:0;transform:translateY(6px)}4%,22%{opacity:1;transform:translateY(0)}26%,100%{opacity:0;transform:translateY(-2px)}}
+.screen .tcode{
+  position:absolute;top:16px;right:18px;font-family:var(--mono);font-size:12px;
+  color:rgba(243,239,230,.75);background:rgba(8,6,10,.55);padding:4px 10px;border-radius:6px;
+  letter-spacing:.06em;
+}
+.screen .rec{position:absolute;top:16px;left:18px;display:flex;gap:8px;align-items:center;font-family:var(--mono);font-size:12px;color:rgba(243,239,230,.7);background:rgba(8,6,10,.55);padding:4px 10px;border-radius:6px}
+.rec i{width:8px;height:8px;border-radius:50%;background:#e5484d;animation:blink 1.6s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+
+/* ---------- sections ---------- */
+section{padding:88px 0}
+.sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:14px}
+.sec-head .idx{font-family:var(--mono);font-size:13px;color:var(--amber);letter-spacing:.1em}
+.sec-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(30px,4vw,46px);letter-spacing:-.01em}
+.sec-lead{color:var(--paper-dim);max-width:64ch;margin-bottom:48px;font-size:17.5px}
+
+/* scenes / workflow */
+.scenes{display:grid;grid-template-columns:1fr;gap:24px}
+.scene{
+  display:grid;grid-template-columns:minmax(300px,4fr) 6fr;gap:38px;align-items:center;
+  border:1px solid var(--line-2);border-radius:16px;padding:34px 32px;
+  background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.008));
+  transition:border-color .2s, transform .2s;position:relative;overflow:hidden;
+}
+.scene:hover{border-color:rgba(240,180,41,.4);transform:translateY(-3px)}
+.scene .tag{font-family:var(--mono);font-size:12px;color:var(--amber);letter-spacing:.12em;margin-bottom:14px;display:block}
+.scene h3{font-family:var(--serif);font-size:24px;font-weight:600;margin-bottom:10px}
+.scene p{color:var(--paper-dim);font-size:15.5px}
+.scene img{width:100%;height:auto;border-radius:10px;border:1px solid var(--line-2);display:block}
+
+/* feature grid */
+.feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line-2);border:1px solid var(--line-2);border-radius:16px;overflow:hidden}
+.feat{background:var(--ink);padding:32px 30px;transition:background .2s}
+.feat:hover{background:var(--ink-2)}
+.feat .k{font-family:var(--mono);font-size:12px;color:var(--amber);letter-spacing:.12em;margin-bottom:12px;display:block}
+.feat h3{font-size:19px;font-weight:600;margin-bottom:8px;letter-spacing:.005em}
+.feat p{color:var(--paper-dim);font-size:15px}
+
+/* privacy band */
+.privacy-band{
+  border:1px solid var(--line);border-radius:20px;padding:56px 48px;
+  background:
+    radial-gradient(600px 240px at 12% 0%, rgba(240,180,41,.08), transparent 60%),
+    var(--ink-2);
+  display:grid;grid-template-columns:1.2fr 1fr;gap:44px;align-items:center;
+}
+.privacy-band h2{font-family:var(--serif);font-weight:600;font-size:clamp(28px,3.4vw,40px);line-height:1.1}
+.privacy-band h2 em{font-style:italic;color:var(--amber)}
+.privacy-band p{color:var(--paper-dim);margin-top:14px;max-width:52ch}
+.pill-list{display:flex;flex-direction:column;gap:12px}
+.pill{
+  display:flex;align-items:center;gap:12px;padding:15px 20px;
+  border:1px solid var(--line-2);border-radius:12px;
+  font-size:15.5px;background:rgba(14,12,16,.6);
+}
+.pill b{color:var(--amber-soft);font-weight:600}
+.pill .tick{color:var(--amber);font-family:var(--mono)}
+
+/* faq */
+.faq{max-width:780px}
+.faq details{border-bottom:1px solid var(--line-2);padding:6px 0}
+.faq summary{
+  cursor:pointer;list-style:none;padding:20px 4px;font-size:18px;font-weight:600;
+  display:flex;align-items:center;gap:16px;transition:color .15s;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"Q";font-family:var(--mono);color:var(--amber);font-size:14px;border:1px solid var(--line);border-radius:8px;width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 30px}
+.faq summary:hover{color:var(--amber-soft)}
+.faq details[open] summary{color:var(--amber-soft)}
+.faq details p{padding:0 4px 22px 50px;color:var(--paper-dim);font-size:15.5px;max-width:62ch}
+
+/* footer */
+footer{border-top:1px solid var(--line-2);padding:52px 0 64px;margin-top:40px}
+.foot{display:flex;gap:40px;flex-wrap:wrap;align-items:flex-start;justify-content:space-between}
+.foot .logo{font-size:19px}
+.foot small{display:block;color:var(--paper-faint);font-family:var(--mono);font-size:12px;margin-top:10px}
+.foot nav{display:flex;gap:24px;flex-wrap:wrap}
+.foot nav a{color:var(--paper-dim);text-decoration:none;font-size:14.5px}
+.foot nav a:hover{color:var(--amber-soft)}
+
+/* reveal animation */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.on{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+
+@media(max-width:900px){
+  .scene{grid-template-columns:1fr;padding:26px 22px;gap:0}
+  .scene img{margin-top:20px}
+  .feat-grid{grid-template-columns:1fr}
+  .privacy-band{grid-template-columns:1fr;padding:40px 30px}
+  .bar nav > a{display:none}
+  section{padding:64px 0}
+  .hero{padding:64px 0 24px}
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="logo" href="/"><span class="dot"></span>KenjaGrid</a>
+    <nav>
+      <a href="#workflow">Workflow</a>
+      <a href="#features">Features</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#faq">FAQ</a>
+      <details class="lang-menu">
+        <summary>Language</summary>
+        <div class="lang-pop">
+          <a href="/" hreflang="en" aria-current="page">English</a>
+          <a href="/zh.html" hreflang="zh-Hans">简体中文</a>
+          <a href="/ja.html" hreflang="ja">日本語</a>
+        </div>
+      </details>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="tc rv">spreadsheets · xlsx · 500+ functions · on every machine</div>
+    <h1 class="rv d1">Open the books.<br><em>Ask the AI. Ship the numbers.</em></h1>
+    <p class="sub rv d2">
+      KenjaGrid is a <strong>fast, open-source spreadsheet app</strong> — the ribbon, shortcuts
+      and formulas you already know, native XLSX round-trip, 500+ functions, dynamic arrays,
+      pivot tables and charts — running natively on macOS, Windows, Linux and BSD, and in your
+      browser. With a built-in <strong>AI assistant</strong> that answers questions about your
+      workbook. Private by default: nothing collected, nothing tracked.
+    </p>
+    <div class="cta-row rv d3">
+      <a class="cta-soon" href="https://github.com/koihuang/KenjaGrid/releases/latest" rel="noopener"><span class="tick"></span>Download free on GitHub</a>
+      <span class="cta-note">macOS · Windows · Linux · BSD · Web · MIT / Apache-2.0 · no account, no key required</span>
+    </div>
+
+    <figure class="screen rv d3">
+      <img src="assets/hero.png" alt="KenjaGrid showing a quarterly sales dashboard: a styled table with banded rows, filter buttons, a totals row, data bars, arrow icons and sparklines, next to a clustered column chart and a pie chart" width="2000" height="1250" fetchpriority="high">
+      <div class="rec"><i></i>LOCAL-FIRST</div>
+      <div class="tcode">OPEN SOURCE · MCP</div>
+      <div class="cap">
+        <span>Your workbooks never leave your machine</span>
+        <span>工作簿从不出你的电脑</span>
+        <span>ワークブックは PC の外へ出ない</span>
+        <span>— KenjaGrid, the sage's grid</span>
+      </div>
+    </figure>
+  </section>
+
+  <!-- WORKFLOW -->
+  <section id="workflow">
+    <div class="sec-head rv"><span class="idx">01</span><h2>From raw numbers to the finished report</h2></div>
+    <p class="sec-lead rv">Enter, calculate, analyse, share — one fast, native app on every platform you use.</p>
+    <div class="scenes">
+      <article class="scene rv">
+        <div>
+          <span class="tag">STEP 01 · ENTER</span>
+          <h3>Feels like the spreadsheet you know</h3>
+          <p>Ribbon, formula bar, Name Box, sheet tabs, fill handle, point-mode formula entry with coloured references, Format Cells, Paste Special, AutoFilter and the keyboard shortcuts you already have in your fingers. A full dark theme for late-night books.</p>
+        </div>
+        <img src="assets/budget.png" alt="A household budget in KenjaGrid with accounting number formats, red highlights for overspent categories, a colour scale on the percent-used column, a totals row with a double border and a horizontal bar chart comparing budget with actual" loading="lazy" width="2000" height="1250">
+      </article>
+      <article class="scene rv d1">
+        <div>
+          <span class="tag">STEP 02 · CALCULATE</span>
+          <h3>500+ functions, dynamic arrays and all</h3>
+          <p>Modern dynamic arrays that spill, LET and LAMBDA, MAP, REDUCE, SCAN, BYROW, BYCOL and MAKEARRAY, structured table references, a comprehensive number-format language — on a dependency-graph engine with incremental recalculation and copy-on-write undo.</p>
+        </div>
+        <img src="assets/formulas.png" alt="A gradebook in KenjaGrid with averages and letter grades computed with IFS, green highlights on A grades and data bars, with the Formulas ribbon tab open showing the function library" loading="lazy" width="2000" height="1250">
+      </article>
+      <article class="scene rv">
+        <div>
+          <span class="tag">STEP 03 · ANALYSE</span>
+          <h3>Pivot tables and charts that answer back</h3>
+          <p>Pivot tables with a field list, filters, layouts, date grouping and show-values-as. Seventeen chart types, a Chart Design tab and a Format pane — selecting a chart outlines its source data. Data bars, colour scales, icon sets and sparklines where the numbers live.</p>
+        </div>
+        <img src="assets/pivot.png" alt="A pivot table in KenjaGrid summarising revenue by region and product with a Channel report filter, grand totals and currency formatting, with the Pivot Table Fields pane open on the right" loading="lazy" width="2000" height="1250">
+      </article>
+      <article class="scene rv d1">
+        <div>
+          <span class="tag">STEP 04 · SHARE</span>
+          <h3>XLSX in, XLSX out — plus PDF</h3>
+          <p>XLSX is the native format: styles, themes, formulas (including dynamic arrays), tables, conditional formats, validation, comments, hyperlinks, charts, pictures, sparklines, pivot tables and print settings round-trip. CSV and TSV too, page break preview, printing and PDF export.</p>
+        </div>
+        <img src="assets/pagebreak.png" alt="The household budget in KenjaGrid's Page Break Preview: the print area outlined in blue with a dashed page break, Page 1 and Page 2 watermarks, and the area outside the print range greyed out" loading="lazy" width="2000" height="1250">
+      </article>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="sec-head rv"><span class="idx">02</span><h2>Everything a workbook needs, nothing in your way</h2></div>
+    <p class="sec-lead rv">Not a cloud subscription — a fast, native app that takes your numbers seriously, on every machine you own.</p>
+    <div class="feat-grid rv">
+      <div class="feat">
+        <span class="k">FAMILIAR</span>
+        <h3>Right where you expect it</h3>
+        <p>Ribbon with keytips, formula bar, Name Box, sheet tabs, fill handle, sort and AutoFilter, Flash Fill, data validation, outlining and subtotals — keyboard-first throughout, and everything is right where Excel trained you to look.</p>
+      </div>
+      <div class="feat">
+        <span class="k">COMPATIBLE</span>
+        <h3>XLSX is the native format</h3>
+        <p>Styles, themes, formulas, tables, conditional formats, validation, comments, hyperlinks, charts, pictures, sparklines and pivot tables round-trip. CSV and TSV; legacy .xls values; XLSB and ODS worksheet-data import.</p>
+      </div>
+      <div class="feat">
+        <span class="k">AI</span>
+        <h3>Ask your workbook</h3>
+        <p>A built-in assistant answers questions about the active sheet through inspection tools — read-only by default. Your OpenAI-compatible endpoint, your key, your machine; the conversation lives in memory only. Fully functional without it.</p>
+      </div>
+      <div class="feat">
+        <span class="k">AGENTS</span>
+        <h3>Every action is a command</h3>
+        <p>Every button, menu item, dialog and keystroke is a command with a stable id and undo — drivable from an MCP server, the CLI or a local JSON control channel, so people, scripts and AI agents share one set of verbs.</p>
+      </div>
+      <div class="feat">
+        <span class="k">FAST</span>
+        <h3>Built for big sheets</h3>
+        <p>Copy-on-write workbooks make undo snapshots nearly free. Incremental recalculation recomputes only what changed. A virtualised grid lays out only what's on screen. Pure Rust, no Electron in sight.</p>
+      </div>
+      <div class="feat">
+        <span class="k">OPEN</span>
+        <h3>Free and open source</h3>
+        <p>MIT or Apache-2.0, your choice. One Rust codebase for desktop and web — no subscription, no licence server, no telemetry. The source is public, so every claim on this page can be checked.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIVACY -->
+  <section id="privacy">
+    <div class="sec-head rv"><span class="idx">03</span><h2>Private by default</h2></div>
+    <div class="privacy-band rv">
+      <div>
+        <h2>No accounts. No cloud. <em>No tracking.</em></h2>
+        <p>KenjaGrid works like a good tool should — it computes on your machine and talks to no one. Workbooks are never uploaded; the only network use is the optional AI chat you configure yourself, straight to the endpoint you named. Its agent interfaces are strictly local: an MCP server over stdio, and a control channel that listens only on 127.0.0.1. And because the source is public, you don't have to take our word for any of it.</p>
+        <p style="margin-top:18px"><a href="privacy.html" style="color:var(--amber-soft)">Read the privacy policy →</a></p>
+      </div>
+      <div class="pill-list">
+        <div class="pill"><span class="tick">✓</span><span><b>Workbooks:</b> never uploaded</span></div>
+        <div class="pill"><span class="tick">✓</span><span><b>Accounts &amp; analytics:</b> none</span></div>
+        <div class="pill"><span class="tick">✓</span><span><b>AI chat:</b> your endpoint, your key, your machine</span></div>
+        <div class="pill"><span class="tick">✓</span><span><b>Telemetry:</b> none, ever</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="sec-head rv"><span class="idx">04</span><h2>Questions, answered</h2></div>
+    <div class="faq rv">
+      <details open>
+        <summary>Does KenjaGrid upload my workbooks anywhere?</summary>
+        <p>No. Creating, editing, calculating, formatting, charting and exporting all run locally on your machine. The app initiates no network traffic of its own — the only traffic ever sent is an AI-chat request that you triggered, delivered straight to the endpoint you configured. And because KenjaGrid is open source, you can verify all of this in the public code.</p>
+      </details>
+      <details>
+        <summary>Can the AI assistant edit my workbook?</summary>
+        <p>Not by default. The assistant answers questions about the active workbook through inspection tools — a workbook or sheet summary, cell reads, text search — and read-only is the default. It can only modify anything after you explicitly switch to one of the edit modes. The conversation lives in memory only, and in the browser build the AI assistant is unavailable.</p>
+      </details>
+      <details>
+        <summary>Which AI models can I use?</summary>
+        <p>Any OpenAI-compatible endpoint you configure yourself: OpenAI, DeepSeek, Qwen, or a local server such as Ollama or LM Studio. Your API key is stored on your machine and sent only to the base URL you configured, only when you send a message. The app is fully functional without any AI.</p>
+      </details>
+      <details>
+        <summary>Can KenjaGrid open my Excel files?</summary>
+        <p>Yes. XLSX is the native format: styles, themes, formulas (including dynamic arrays), tables, conditional formats, validation, comments, hyperlinks, charts, pictures, sparklines, pivot tables and print settings all round-trip. It also reads and writes CSV and TSV, opens legacy 97-2003 .xls workbooks with their values, formulas and number formats, and imports worksheet data from XLSB and ODS files.</p>
+      </details>
+      <details>
+        <summary>Which platforms does KenjaGrid run on?</summary>
+        <p>Native macOS (Apple silicon and Intel, signed and notarized), Windows (x64, arm64 and x86, code-signed), Linux (AppImage, Flatpak, deb, rpm and tarball on x86_64 and ARM64), FreeBSD, and the web via WebAssembly.</p>
+      </details>
+      <details>
+        <summary>Is KenjaGrid really free?</summary>
+        <p>Yes — free and open source under the MIT or Apache-2.0 licence, your choice. No subscription, no licence server, no telemetry. It is in active development (alpha): the core spreadsheet workflow works end to end, and compatibility depth keeps growing in the open, with a public roadmap.</p>
+      </details>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <a class="logo" href="/"><span class="dot"></span>KenjaGrid</a>
+      <small>© 2026 KenjaHub · The sage's grid</small>
+    </div>
+    <nav>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="https://github.com/KenjaHub" rel="noopener">GitHub</a>
+      <a href="https://github.com/koihuang/KenjaGrid" rel="noopener">Source</a>
+      <a href="https://github.com/koihuang/KenjaGrid/issues" rel="noopener">Support</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.addEventListener('click',e=>{document.querySelectorAll('details.lang-menu[open]').forEach(d=>{if(!d.contains(e.target))d.removeAttribute('open')})});
+</script>
+</body>
+</html>

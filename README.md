@@ -44,15 +44,16 @@ BSD 上原生运行，并通过 WebAssembly 在浏览器中运行。快速（增
 ## Website (this repository)
 
 This is the KenjaGrid product website / SEO repository. The privacy policy is
-[`privacy.md`](privacy.md) — English · 简体中文 · 日本語 in one Markdown document.
+[`privacy.md`](privacy.md) — English · 简体中文 · 日本語 in one Markdown document; the site
+serves its English rendering at `privacy.html`.
 
-Publishing notes (matching the sibling KenjaPDF-site / KenjaDeck-site):
+The site lives in `docs/`, matching the sibling KenjaPDF-site / KenjaDeck-site:
 
-- The HTML pages land in `docs/` in a later step and are served by GitHub Pages from branch
-  `main`, folder `/docs` (repo Settings → Pages): EN at `index.html`, 简体中文 at `zh.html`,
-  日本語 at `ja.html`, privacy at `privacy.html`, plus `CNAME`, `robots.txt`, `sitemap.xml`
-  and `llms.txt`.
-- DNS (when the pages land): `kenjagrid.kofukuai.com` CNAME → `KenjaHub.github.io`.
+- Served by GitHub Pages from branch `main`, folder `/docs` (repo Settings → Pages):
+  EN at `index.html`, 简体中文 at `zh.html`, 日本語 at `ja.html`, privacy at `privacy.html`,
+  plus `CNAME`, `robots.txt`, `sitemap.xml` and `llms.txt`. Screenshots in `docs/assets/`
+  are the original app screenshots from the app repository's README.
+- DNS: `kenjagrid.kofukuai.com` CNAME → `KenjaHub.github.io`.
 - Privacy policy URL (declared wherever the app is distributed):
   `https://kenjagrid.kofukuai.com/privacy.html`; marketing URL:
   `https://kenjagrid.kofukuai.com`.

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — KenjaGrid</title>
+<meta name="description" content="KenjaGrid collects nothing: no accounts, no analytics, no tracking. Workbooks never leave your device — the only network use is the optional AI chat, which goes directly to the endpoint you configure.">
+<link rel="canonical" href="https://kenjagrid.kofukuai.com/privacy.html">
+<meta property="og:title" content="Privacy Policy — KenjaGrid">
+<meta property="og:description" content="No accounts. No analytics. No tracking. Workbooks never leave your device.">
+<meta name="theme-color" content="#0e0c10">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e0c10'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-weight='700' fill='%23f0b429' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0e0c10;--ink-2:#16131a;
+  --line:rgba(240,180,41,.14);--line-2:rgba(255,255,255,.08);
+  --amber:#f0b429;--amber-soft:#f6c453;
+  --paper:#f3efe6;--paper-dim:#b7b2a6;--paper-faint:#7d7971;
+  --serif:"Fraunces",Georgia,serif;
+  --sans:"Instrument Sans",-apple-system,sans-serif;
+  --mono:"Spline Sans Mono","SF Mono",Menlo,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(1000px 500px at 50% -10%,rgba(240,180,41,.06),transparent 60%)}
+::selection{background:var(--amber);color:var(--ink)}
+.wrap{max-width:760px;margin:0 auto;padding:0 28px;position:relative}
+.topbar{padding:26px 0}
+.topbar a{color:var(--paper-dim);text-decoration:none;font-family:var(--serif);font-weight:700;font-size:19px;display:flex;align-items:center;gap:10px}
+.topbar a:hover{color:var(--amber-soft)}
+.topbar .dot{width:9px;height:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 14px rgba(240,180,41,.8)}
+header{padding:36px 0 10px}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5vw,52px);line-height:1.08;letter-spacing:-.01em}
+h1 em{font-style:italic;color:var(--amber)}
+.effective{font-family:var(--mono);font-size:12.5px;color:var(--paper-faint);letter-spacing:.1em;text-transform:uppercase;margin-top:14px}
+.callout{border:1px solid var(--line);border-radius:14px;background:var(--ink-2);padding:22px 26px;margin:34px 0 10px}
+.callout p{color:var(--paper);font-size:17.5px}
+.callout b{color:var(--amber-soft)}
+article{padding:26px 0 70px}
+h2{font-family:var(--serif);font-weight:600;font-size:24px;margin:38px 0 12px;padding-top:24px;border-top:1px solid var(--line-2)}
+h2:first-of-type{border-top:none;padding-top:0}
+p{color:var(--paper-dim);margin-bottom:14px}
+p strong,li strong{color:var(--paper)}
+ul{margin:0 0 14px 22px;color:var(--paper-dim)}
+li{margin-bottom:8px}
+a{color:var(--amber-soft)}
+footer{border-top:1px solid var(--line-2);padding:30px 0 50px;color:var(--paper-faint);font-family:var(--mono);font-size:12.5px}
+footer a{color:var(--paper-dim);text-decoration:none;font-family:var(--sans);font-size:14.5px}
+footer a:hover{color:var(--amber-soft)}
+footer .links{display:flex;gap:22px;margin-bottom:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar"><a href="index.html"><span class="dot"></span>KenjaGrid</a></div>
+  <header>
+    <h1>Privacy Policy</h1>
+    <div class="effective">Effective date: November 1, 2026</div>
+    <div class="callout">
+      <p><b>The short version: KenjaGrid collects nothing.</b> There are no accounts, no analytics, no ads, and no tracking. Your workbooks never leave your device — the only network traffic the app ever makes is when <b>you</b> use the built-in AI assistant, and those requests go directly to the AI provider <b>you</b> configured. We run no AI service and see none of that traffic.</p>
+    </div>
+  </header>
+  <article>
+    <p>KenjaGrid is a spreadsheet app for macOS, Windows, Linux and BSD (with a browser build via WebAssembly), developed by KenjaHub ("we", "us"). It is free, open-source software, and its source code is public — you can verify everything in this policy yourself. This policy explains what happens to your data when you use the app.</p>
+
+    <h2>1. Data we collect</h2>
+    <p>None. KenjaGrid does not transmit any personal data to us, and does not share data with any third party on our behalf.</p>
+    <p>In particular, KenjaGrid does <strong>not</strong> include:</p>
+    <ul>
+      <li>user accounts or sign-in</li>
+      <li>analytics, telemetry, or crash-reporting SDKs</li>
+      <li>advertising or ad tracking of any kind</li>
+      <li>third-party trackers</li>
+    </ul>
+
+    <h2>2. Your workbooks stay on your device</h2>
+    <p>Everything KenjaGrid does with your workbooks happens locally on your device:</p>
+    <ul>
+      <li><strong>Creating, editing, calculating, formatting, charting, printing and exporting all run on your machine.</strong></li>
+      <li><strong>Workbooks are never uploaded.</strong> There is no server, no sync, no cloud — workbooks and exports are written wherever you choose on your disk.</li>
+    </ul>
+
+    <h2>3. The AI assistant — the only network traffic</h2>
+    <p>KenjaGrid includes a built-in AI assistant that can answer questions about the active workbook. It uses <strong>your</strong> model, not ours (bring your own key):</p>
+    <ul>
+      <li><strong>You configure the endpoint.</strong> The assistant speaks to any OpenAI-compatible endpoint you set up in the app — OpenAI, DeepSeek, Qwen, or a local server such as Ollama or LM Studio.</li>
+      <li><strong>Requests go directly from your device to that endpoint.</strong> We run no AI service and no proxy: your questions, your workbook content and your key never pass through us, and we could not see them if we wanted to.</li>
+      <li><strong>What a request contains:</strong> your message, the recent conversation, and the workbook content the assistant reads through its inspection tools — a workbook or sheet summary, cell values, or a text search. By default the assistant can only look: read-only is the default, and it cannot modify your workbook unless you explicitly switch to one of the edit modes.</li>
+      <li><strong>Your API key</strong> is stored only in the app's settings file on your device, and is sent only to the base URL you configured, as an authorization header. For a local server you can leave it empty (keyless mode), and then nothing is sent.</li>
+      <li><strong>The conversation lives in memory only.</strong> It is kept per document, closing the app or the document clears it, and nothing is ever written to disk.</li>
+      <li><strong>In the browser (WebAssembly) build, the AI assistant is unavailable</strong> — the web app makes no AI requests at all.</li>
+      <li><strong>Once your data reaches the provider you chose, their privacy policy governs it.</strong> We do not choose, vet or endorse providers — pick one you trust.</li>
+    </ul>
+
+    <h2>4. Data stored on your device</h2>
+    <p>The following data is stored only on your device, under your full control:</p>
+    <ul>
+      <li><strong>Workbooks and exports</strong> — the files you create, open or export stay wherever you saved them; KenjaGrid keeps no copy</li>
+      <li><strong>App settings</strong> — including your AI model profiles: base URL, model id and API key, kept in the app's settings file</li>
+      <li><strong>Log files</strong> — the app writes a local log (<code>gridcraft.log</code> in its logs folder) to help you debug problems; it stays on your machine, is size-capped, and is never sent to us (you can attach it to a bug report yourself if you choose to)</li>
+    </ul>
+    <p>Uninstalling the app removes the app and its local settings. Your workbooks are yours and remain untouched.</p>
+
+    <h2>5. Network access and the local agent interface</h2>
+    <p>KenjaGrid itself initiates no network traffic — there is no account check, no update ping, no telemetry. The only internet traffic the app ever sends is an AI-assistant request that <strong>you</strong> triggered, delivered to the endpoint <strong>you</strong> configured. Updates are delivered by GitHub Releases or your package manager, not by us.</p>
+    <p>KenjaGrid is agent-native, and its automation interfaces are strictly local: the MCP server talks over standard input/output, and the optional JSON control channel listens only on your own machine (127.0.0.1) and only when you explicitly start the app with it enabled. Agents work on your workbooks the way you do — on your machine. Nothing in these interfaces contacts the internet or us.</p>
+
+    <h2>6. Children</h2>
+    <p>KenjaGrid is a general-purpose productivity tool and is not directed at children. Since the app collects no data at all, no data of children is collected either.</p>
+
+    <h2>7. Your control</h2>
+    <p>Because everything lives on your device, you are in full control at any time: open, copy, export or delete your workbooks like any other file, remove your saved models and keys in the Manage Models settings, delete the log files, or uninstall the app to erase its settings.</p>
+
+    <h2>8. Changes to this policy</h2>
+    <p>If we change this policy, we will post the updated version on this page with a new effective date.</p>
+
+    <h2>9. Contact</h2>
+    <ul>
+      <li>Email: <a href="mailto:kenjasoft@kofukuai.com">kenjasoft@kofukuai.com</a></li>
+      <li>GitHub: <a href="https://github.com/KenjaHub" rel="noopener">https://github.com/KenjaHub</a></li>
+    </ul>
+    <p>The full trilingual version of this policy (English · 简体中文 · 日本語) is also in the repository as <a href="https://github.com/KenjaHub/KenjaGrid/blob/main/privacy.md" rel="noopener">privacy.md</a>.</p>
+  </article>
+  <footer>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="zh.html">中文</a>
+      <a href="ja.html">日本語</a>
+      <a href="https://github.com/KenjaHub" rel="noopener">GitHub</a>
+    </div>
+    © 2026 KenjaHub
+  </footer>
+</div>
+</body>
+</html>

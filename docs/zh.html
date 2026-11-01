@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KenjaGrid — 开源电子表格应用 · XLSX、500+ 函数、数据透视表与工作簿 AI</title>
+<meta name="description" content="KenjaGrid 是一款快速的开源电子表格应用,支持 macOS、Windows、Linux、BSD 与网页端:原生 XLSX 双向往返、500+ 函数、动态数组、数据透视表与图表——并内置回答工作簿问题的 AI 助手。无账号、无遥测、无追踪。">
+<link rel="canonical" href="https://kenjagrid.kofukuai.com/zh.html">
+<link rel="alternate" hreflang="en" href="https://kenjagrid.kofukuai.com/">
+<link rel="alternate" hreflang="zh-Hans" href="https://kenjagrid.kofukuai.com/zh.html">
+<link rel="alternate" hreflang="ja" href="https://kenjagrid.kofukuai.com/ja.html">
+<link rel="alternate" hreflang="x-default" href="https://kenjagrid.kofukuai.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KenjaGrid">
+<meta property="og:title" content="KenjaGrid — 开源电子表格应用">
+<meta property="og:description" content="你熟悉的功能区、快捷键与公式,原生 XLSX 双向往返,数据透视表与图表——覆盖 macOS、Windows、Linux、BSD 与网页端——并内置回答工作簿问题的 AI 助手。不收集任何数据。">
+<meta property="og:url" content="https://kenjagrid.kofukuai.com/zh.html">
+<meta property="og:image" content="https://kenjagrid.kofukuai.com/assets/hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="KenjaGrid — 开源电子表格应用">
+<meta name="twitter:description" content="原生 XLSX、500+ 函数、动态数组、数据透视表与图表,还有工作簿 AI 助手。免费开源,不收集任何数据。">
+<meta name="twitter:image" content="https://kenjagrid.kofukuai.com/assets/hero.png">
+<meta name="theme-color" content="#0e0c10">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e0c10'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-weight='700' fill='%23f0b429' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "KenjaGrid",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "macOS, Windows, Linux, BSD, Web browser",
+  "description": "用 Rust 构建的快速开源电子表格应用:熟悉的功能区、编辑栏与快捷键,原生 XLSX 双向往返(样式、公式含动态数组、表格、条件格式、图表、迷你图与数据透视表),500+ 工作表函数,LET 与 LAMBDA,排序与自动筛选,闪充填充,数据验证,打印与 PDF 导出——并内置 AI 助手,通过你自行配置的任意 OpenAI 兼容端点回答当前工作簿的问题。默认保护隐私:无账号、无统计、无追踪,并提供 Agent 友好的自动化层(MCP 服务器、CLI、仅限本地的 JSON 控制通道)。",
+  "url": "https://kenjagrid.kofukuai.com/zh.html",
+  "author": { "@type": "Organization", "name": "KenjaHub", "url": "https://github.com/KenjaHub" },
+  "license": "https://opensource.org/licenses/MIT",
+  "featureList": [
+    "熟悉的电子表格工作流:功能区、编辑栏、名称框、工作表标签、填充柄、设置单元格格式、选择性粘贴、键盘快捷键与访问键",
+    "500+ 工作表函数,动态数组与溢出,LET、LAMBDA、MAP、REDUCE、SCAN、BYROW、BYCOL 与 MAKEARRAY",
+    "原生 XLSX 双向往返:样式、主题、公式、表格、条件格式、验证、批注、超链接、图表、图片、迷你图、数据透视表与打印设置;支持 CSV/TSV;旧版 .xls 取值;XLSB 与 ODS 工作表数据导入",
+    "数据透视表:字段列表、筛选、布局、日期分组与值显示方式;17 种图表类型,图表设计选项卡与格式窗格",
+    "条件格式:数据条、色阶与图标集;迷你图;数字格式语言;组合与分类汇总",
+    "快速引擎:写时复制工作簿、增量重算、虚拟化网格",
+    "内置 AI 助手回答当前工作簿的问题,默认只读,使用你自己的 OpenAI 兼容端点(OpenAI、DeepSeek、Qwen、Ollama、LM Studio)",
+    "Agent 友好:MCP 服务器、CLI 与仅限本地的 JSON 控制通道可达每一条命令",
+    "MIT 或 Apache-2.0 免费开源;支持 macOS、Windows、Linux、BSD 与网页端"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "KenjaGrid 会上传我的工作簿吗?",
+      "acceptedAnswer": { "@type": "Answer", "text": "不会。创建、编辑、计算、格式化、制图与导出全部在你的电脑本地完成。应用自身不发起任何网络流量——唯一发出的流量是你触发的 AI 聊天请求,直接发往你自己配置的端点。KenjaGrid 是开源软件,这一切你都可以在公开代码里亲自验证。" }
+    },
+    {
+      "@type": "Question",
+      "name": "AI 助手能修改我的工作簿吗?",
+      "acceptedAnswer": { "@type": "Answer", "text": "默认不能。助手通过检查工具——工作簿或工作表概要、单元格读取、文本搜索——回答关于当前工作簿的问题,只读是默认模式。只有当你显式切换到某一种编辑模式后,它才可能修改内容。会话仅存于内存;网页版中 AI 助手不可用。" }
+    },
+    {
+      "@type": "Question",
+      "name": "可以使用哪些 AI 模型?",
+      "acceptedAnswer": { "@type": "Answer", "text": "任何你自行配置的 OpenAI 兼容端点:OpenAI、DeepSeek、Qwen,或 Ollama、LM Studio 等本地服务。API 密钥保存在你的电脑上,只在你发送消息时发往你配置的基础 URL。完全不配置 AI,应用的所有功能照常可用。" }
+    },
+    {
+      "@type": "Question",
+      "name": "KenjaGrid 能打开我的 Excel 文件吗?",
+      "acceptedAnswer": { "@type": "Answer", "text": "可以。XLSX 是原生格式:样式、主题、公式(含动态数组)、表格、条件格式、验证、批注、超链接、图表、图片、迷你图、数据透视表与打印设置全部双向往返。还能读写 CSV 与 TSV,打开旧版 97-2003 .xls 工作簿的数值、公式与数字格式,并导入 XLSB 与 ODS 文件中的工作表数据。" }
+    },
+    {
+      "@type": "Question",
+      "name": "KenjaGrid 支持哪些平台?",
+      "acceptedAnswer": { "@type": "Answer", "text": "原生 macOS(Apple 芯片与 Intel,已签名公证)、Windows(x64、arm64 与 x86,已代码签名)、Linux(AppImage、Flatpak、deb、rpm 与 tarball,x86_64 与 ARM64)、FreeBSD,以及基于 WebAssembly 的网页版。" }
+    },
+    {
+      "@type": "Question",
+      "name": "KenjaGrid 真的免费吗?",
+      "acceptedAnswer": { "@type": "Answer", "text": "免费——MIT 或 Apache-2.0 开源许可,任你选择。无订阅、无许可服务器、无遥测。它仍在积极开发中(alpha):核心表格工作流已完整可用,兼容深度在公开路线图下持续增长。" }
+    }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --ink:#0e0c10;
+  --ink-2:#16131a;
+  --ink-3:#1e1a23;
+  --line:rgba(240,180,41,.14);
+  --line-2:rgba(255,255,255,.08);
+  --amber:#f0b429;
+  --amber-soft:#f6c453;
+  --paper:#f3efe6;
+  --paper-dim:#b7b2a6;
+  --paper-faint:#7d7971;
+  --serif:"Fraunces",Georgia,serif;
+  --sans:"Instrument Sans",-apple-system,"Helvetica Neue",sans-serif;
+  --mono:"Spline Sans Mono","SF Mono",Menlo,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--paper);
+  font-family:var(--sans);
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:3;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(240,180,41,.07), transparent 60%),
+    radial-gradient(900px 700px at 100% 100%, rgba(120,80,200,.05), transparent 55%);
+}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:2;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+::selection{background:var(--amber);color:var(--ink)}
+
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px;position:relative;z-index:4}
+
+/* ---------- top bar ---------- */
+.bar{
+  position:sticky;top:0;z-index:10;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  background:rgba(14,12,16,.82);
+  border-bottom:1px solid var(--line);
+}
+.bar .wrap{display:flex;align-items:center;gap:22px;height:60px}
+.logo{font-family:var(--serif);font-weight:700;font-size:21px;letter-spacing:.01em;color:var(--paper);text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo .dot{width:9px;height:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 14px rgba(240,180,41,.8)}
+.bar nav{margin-left:auto;display:flex;gap:26px;align-items:center}
+.bar nav a{color:var(--paper-dim);text-decoration:none;font-size:14.5px;letter-spacing:.02em;transition:color .18s}
+.bar nav a:hover{color:var(--amber-soft)}
+.lang-menu{position:relative;font-family:var(--mono);font-size:12.5px}
+.lang-menu summary{list-style:none;cursor:pointer;user-select:none;color:var(--paper-faint);border:1px solid var(--line-2);padding:5px 11px;border-radius:99px;display:inline-flex;align-items:center;gap:7px;transition:all .18s}
+.lang-menu summary::-webkit-details-marker{display:none}
+.lang-menu summary::after{content:"";width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:4px solid currentColor;margin-top:2px}
+.lang-menu summary:hover,.lang-menu[open] summary{border-color:var(--amber);color:var(--amber)}
+.lang-pop{position:absolute;right:0;top:calc(100% + 10px);background:var(--ink-3);border:1px solid var(--line-2);border-radius:12px;padding:6px;display:flex;flex-direction:column;min-width:132px;z-index:60;box-shadow:0 18px 50px rgba(0,0,0,.55)}
+.lang-pop a{color:var(--paper-dim);text-decoration:none;padding:8px 12px;border-radius:8px;font-size:12.5px;white-space:nowrap;transition:color .15s,background .15s}
+.lang-pop a:hover{background:rgba(240,180,41,.09);color:var(--amber)}
+.lang-pop a[aria-current]{color:var(--amber);pointer-events:none}
+
+/* ---------- hero ---------- */
+.hero{padding:96px 0 40px;position:relative}
+.hero .tc{
+  font-family:var(--mono);font-size:12.5px;color:var(--amber);
+  letter-spacing:.14em;text-transform:uppercase;
+  display:flex;align-items:center;gap:14px;margin-bottom:26px;
+}
+.hero .tc::after{content:"";height:1px;flex:0 0 72px;background:linear-gradient(90deg,var(--amber),transparent)}
+.hero h1{
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(44px,6.4vw,84px);
+  line-height:1.02;letter-spacing:-.015em;
+  max-width:15ch;
+}
+.hero h1 em{font-style:italic;color:var(--amber);font-weight:500}
+.hero .sub{margin-top:26px;max-width:60ch;color:var(--paper-dim);font-size:19px}
+.hero .sub strong{color:var(--paper);font-weight:600}
+.cta-row{margin-top:38px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.cta-soon{
+  display:inline-flex;align-items:center;gap:10px;
+  border:1px solid var(--line);border-radius:12px;
+  padding:15px 22px;font-size:16.5px;font-weight:600;color:var(--paper);
+  background:linear-gradient(180deg,rgba(240,180,41,.10),rgba(240,180,41,.03));
+  text-decoration:none;transition:border-color .2s;
+}
+.cta-soon:hover{border-color:var(--amber)}
+.cta-soon .tick{width:9px;height:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 12px rgba(240,180,41,.8);animation:blink 1.6s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.cta-note{font-family:var(--mono);font-size:12.5px;color:var(--paper-faint)}
+
+/* document window w/ cycling captions */
+.screen{
+  margin:64px 0 0;position:relative;border-radius:18px;overflow:hidden;
+  border:1px solid var(--line-2);
+  background:linear-gradient(180deg,#191521,#0d0b11);
+  box-shadow:0 40px 120px rgba(0,0,0,.55), 0 0 0 1px rgba(240,180,41,.06);
+}
+.screen img{display:block;width:100%;height:auto;opacity:.92}
+.screen .cap{
+  position:absolute;left:0;right:0;bottom:34px;text-align:center;pointer-events:none;
+}
+.screen .cap span{
+  display:inline-block;background:rgba(8,6,10,.78);border-radius:8px;
+  padding:10px 18px;font-size:clamp(14px,2vw,19px);font-weight:500;
+  color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.9);
+  opacity:0;animation:capCycle 12s infinite;
+}
+.screen .cap span:nth-child(2){animation-delay:3s}
+.screen .cap span:nth-child(3){animation-delay:6s}
+.screen .cap span:nth-child(4){animation-delay:9s;color:var(--amber-soft)}
+@keyframes capCycle{0%{opacity:0;transform:translateY(6px)}4%,22%{opacity:1;transform:translateY(0)}26%,100%{opacity:0;transform:translateY(-2px)}}
+.screen .tcode{
+  position:absolute;top:16px;right:18px;font-family:var(--mono);font-size:12px;
+  color:rgba(243,239,230,.75);background:rgba(8,6,10,.55);padding:4px 10px;border-radius:6px;
+  letter-spacing:.06em;
+}
+.screen .rec{position:absolute;top:16px;left:18px;display:flex;gap:8px;align-items:center;font-family:var(--mono);font-size:12px;color:rgba(243,239,230,.7);background:rgba(8,6,10,.55);padding:4px 10px;border-radius:6px}
+.rec i{width:8px;height:8px;border-radius:50%;background:#e5484d;animation:blink 1.6s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+
+/* ---------- sections ---------- */
+section{padding:88px 0}
+.sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:14px}
+.sec-head .idx{font-family:var(--mono);font-size:13px;color:var(--amber);letter-spacing:.1em}
+.sec-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(30px,4vw,46px);letter-spacing:-.01em}
+.sec-lead{color:var(--paper-dim);max-width:64ch;margin-bottom:48px;font-size:17.5px}
+
+/* scenes / workflow */
+.scenes{display:grid;grid-template-columns:1fr;gap:24px}
+.scene{
+  display:grid;grid-template-columns:minmax(300px,4fr) 6fr;gap:38px;align-items:center;
+  border:1px solid var(--line-2);border-radius:16px;padding:34px 32px;
+  background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.008));
+  transition:border-color .2s, transform .2s;position:relative;overflow:hidden;
+}
+.scene:hover{border-color:rgba(240,180,41,.4);transform:translateY(-3px)}
+.scene .tag{font-family:var(--mono);font-size:12px;color:var(--amber);letter-spacing:.12em;margin-bottom:14px;display:block}
+.scene h3{font-family:var(--serif);font-size:24px;font-weight:600;margin-bottom:10px}
+.scene p{color:var(--paper-dim);font-size:15.5px}
+.scene img{width:100%;height:auto;border-radius:10px;border:1px solid var(--line-2);display:block}
+
+/* feature grid */
+.feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line-2);border:1px solid var(--line-2);border-radius:16px;overflow:hidden}
+.feat{background:var(--ink);padding:32px 30px;transition:background .2s}
+.feat:hover{background:var(--ink-2)}
+.feat .k{font-family:var(--mono);font-size:12px;color:var(--amber);letter-spacing:.12em;margin-bottom:12px;display:block}
+.feat h3{font-size:19px;font-weight:600;margin-bottom:8px;letter-spacing:.005em}
+.feat p{color:var(--paper-dim);font-size:15px}
+
+/* privacy band */
+.privacy-band{
+  border:1px solid var(--line);border-radius:20px;padding:56px 48px;
+  background:
+    radial-gradient(600px 240px at 12% 0%, rgba(240,180,41,.08), transparent 60%),
+    var(--ink-2);
+  display:grid;grid-template-columns:1.2fr 1fr;gap:44px;align-items:center;
+}
+.privacy-band h2{font-family:var(--serif);font-weight:600;font-size:clamp(28px,3.4vw,40px);line-height:1.1}
+.privacy-band h2 em{font-style:italic;color:var(--amber)}
+.privacy-band p{color:var(--paper-dim);margin-top:14px;max-width:52ch}
+.pill-list{display:flex;flex-direction:column;gap:12px}
+.pill{
+  display:flex;align-items:center;gap:12px;padding:15px 20px;
+  border:1px solid var(--line-2);border-radius:12px;
+  font-size:15.5px;background:rgba(14,12,16,.6);
+}
+.pill b{color:var(--amber-soft);font-weight:600}
+.pill .tick{color:var(--amber);font-family:var(--mono)}
+
+/* faq */
+.faq{max-width:780px}
+.faq details{border-bottom:1px solid var(--line-2);padding:6px 0}
+.faq summary{
+  cursor:pointer;list-style:none;padding:20px 4px;font-size:18px;font-weight:600;
+  display:flex;align-items:center;gap:16px;transition:color .15s;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"Q";font-family:var(--mono);color:var(--amber);font-size:14px;border:1px solid var(--line);border-radius:8px;width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 30px}
+.faq summary:hover{color:var(--amber-soft)}
+.faq details[open] summary{color:var(--amber-soft)}
+.faq details p{padding:0 4px 22px 50px;color:var(--paper-dim);font-size:15.5px;max-width:62ch}
+
+/* footer */
+footer{border-top:1px solid var(--line-2);padding:52px 0 64px;margin-top:40px}
+.foot{display:flex;gap:40px;flex-wrap:wrap;align-items:flex-start;justify-content:space-between}
+.foot .logo{font-size:19px}
+.foot small{display:block;color:var(--paper-faint);font-family:var(--mono);font-size:12px;margin-top:10px}
+.foot nav{display:flex;gap:24px;flex-wrap:wrap}
+.foot nav a{color:var(--paper-dim);text-decoration:none;font-size:14.5px}
+.foot nav a:hover{color:var(--amber-soft)}
+
+/* reveal animation */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.on{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+
+@media(max-width:900px){
+  .scene{grid-template-columns:1fr;padding:26px 22px;gap:0}
+  .scene img{margin-top:20px}
+  .feat-grid{grid-template-columns:1fr}
+  .privacy-band{grid-template-columns:1fr;padding:40px 30px}
+  .bar nav > a{display:none}
+  section{padding:64px 0}
+  .hero{padding:64px 0 24px}
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="logo" href="/"><span class="dot"></span>KenjaGrid</a>
+    <nav>
+      <a href="#workflow">工作流</a>
+      <a href="#features">功能</a>
+      <a href="#privacy">隐私</a>
+      <a href="#faq">常见问题</a>
+      <details class="lang-menu">
+        <summary>Language</summary>
+        <div class="lang-pop">
+          <a href="/" hreflang="en">English</a>
+          <a href="/zh.html" hreflang="zh-Hans" aria-current="page">简体中文</a>
+          <a href="/ja.html" hreflang="ja">日本語</a>
+        </div>
+      </details>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="tc rv">电子表格 · xlsx · 500+ 函数 · 每台机器</div>
+    <h1 class="rv d1">打开工作簿。<br><em>问 AI,出数字。</em></h1>
+    <p class="sub rv d2">
+      KenjaGrid 是一款<strong>快速的开源电子表格应用</strong>——你熟悉的功能区、快捷键与公式,
+      原生 XLSX 双向往返,500+ 函数、动态数组、数据透视表与图表——在 macOS、Windows、Linux
+      与 BSD 上原生运行,也能在浏览器中使用。并内置回答工作簿问题的 <strong>AI 助手</strong>。
+      默认保护隐私:不收集、不追踪。
+    </p>
+    <div class="cta-row rv d3">
+      <a class="cta-soon" href="https://github.com/koihuang/KenjaGrid/releases/latest" rel="noopener"><span class="tick"></span>到 GitHub 免费下载</a>
+      <span class="cta-note">macOS · Windows · Linux · BSD · Web · MIT / Apache-2.0 · 无账号,无需密钥</span>
+    </div>
+
+    <figure class="screen rv d3">
+      <img src="assets/hero.png" alt="KenjaGrid 展示季度销售仪表盘:带条纹行、筛选按钮、汇总行、数据条、箭头图标与迷你图的美化表格,旁边是簇状柱形图与饼图" width="2000" height="1250" fetchpriority="high">
+      <div class="rec"><i></i>本机优先</div>
+      <div class="tcode">开源 · MCP</div>
+      <div class="cap">
+        <span>Your workbooks never leave your machine</span>
+        <span>工作簿从不出你的电脑</span>
+        <span>ワークブックは PC の外へ出ない</span>
+        <span>— KenjaGrid,智者之格</span>
+      </div>
+    </figure>
+  </section>
+
+  <!-- WORKFLOW -->
+  <section id="workflow">
+    <div class="sec-head rv"><span class="idx">01</span><h2>从原始数字到成稿报表</h2></div>
+    <p class="sec-lead rv">录入、计算、分析、分享——一个快速的原生应用,覆盖你使用的每个平台。</p>
+    <div class="scenes">
+      <article class="scene rv">
+        <div>
+          <span class="tag">第 1 步 · 录入</span>
+          <h3>像你熟悉的那张表格</h3>
+          <p>功能区、编辑栏、名称框、工作表标签、填充柄、带彩色引用的指针式公式输入、设置单元格格式、选择性粘贴、排序与自动筛选,以及早已形成肌肉记忆的快捷键。深夜记账还有完整的深色主题。</p>
+        </div>
+        <img src="assets/budget.png" alt="KenjaGrid 中的家庭预算表:会计数字格式、超支类别的红色高亮、百分比列的色阶、双边框汇总行,以及预算与实际的条形图对比" loading="lazy" width="2000" height="1250">
+      </article>
+      <article class="scene rv d1">
+        <div>
+          <span class="tag">第 2 步 · 计算</span>
+          <h3>500+ 函数,动态数组一应俱全</h3>
+          <p>会溢出的现代动态数组,LET 与 LAMBDA,MAP、REDUCE、SCAN、BYROW、BYCOL 与 MAKEARRAY,结构化表格引用,完整的数字格式语言——跑在带增量重算与写时复制撤销的依赖图引擎上。</p>
+        </div>
+        <img src="assets/formulas.png" alt="KenjaGrid 中的成绩册:用 IFS 计算平均分与等级,A 等级绿色高亮并带数据条,Formulas 功能区选项卡展开显示函数库" loading="lazy" width="2000" height="1250">
+      </article>
+      <article class="scene rv">
+        <div>
+          <span class="tag">第 3 步 · 分析</span>
+          <h3>会回应的数据透视表与图表</h3>
+          <p>数据透视表带字段列表、筛选、布局、日期分组与值显示方式;17 种图表类型,图表设计选项卡与格式窗格——选中图表时,源数据会自动框出。数据条、色阶、图标集与迷你图,就放在数字所在的地方。</p>
+        </div>
+        <img src="assets/pivot.png" alt="KenjaGrid 中按地区与产品汇总收入的数据透视表:带渠道报表筛选、总计与货币格式,右侧为展开的数据透视表字段窗格" loading="lazy" width="2000" height="1250">
+      </article>
+      <article class="scene rv d1">
+        <div>
+          <span class="tag">第 4 步 · 分享</span>
+          <h3>XLSX 进,XLSX 出——还有 PDF</h3>
+          <p>XLSX 是原生格式:样式、主题、公式(含动态数组)、表格、条件格式、验证、批注、超链接、图表、图片、迷你图、数据透视表与打印设置全部双向往返。还支持 CSV 与 TSV、分页预览、打印与 PDF 导出。</p>
+        </div>
+        <img src="assets/pagebreak.png" alt="KenjaGrid 分页预览中的家庭预算表:打印区域以蓝色框出并带虚线分页符,Page 1 与 Page 2 水印,打印范围外灰显" loading="lazy" width="2000" height="1250">
+      </article>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="sec-head rv"><span class="idx">02</span><h2>工作簿需要的一切,绝不挡路</h2></div>
+    <p class="sec-lead rv">不是云端订阅——一件认真对待你数字的原生快速应用,装在你拥有的每一台机器上。</p>
+    <div class="feat-grid rv">
+      <div class="feat">
+        <span class="k">熟悉</span>
+        <h3>就在你期待的位置</h3>
+        <p>带访问键的功能区、编辑栏、名称框、工作表标签、填充柄、排序与自动筛选、闪充填充、数据验证、组合与分类汇总——全程键盘优先,一切都在 Excel 训练你去看的地方。</p>
+      </div>
+      <div class="feat">
+        <span class="k">兼容</span>
+        <h3>XLSX 就是原生格式</h3>
+        <p>样式、主题、公式、表格、条件格式、验证、批注、超链接、图表、图片、迷你图与数据透视表双向往返。支持 CSV 与 TSV;旧版 .xls 取值;XLSB 与 ODS 工作表数据导入。</p>
+      </div>
+      <div class="feat">
+        <span class="k">AI</span>
+        <h3>问你的工作簿</h3>
+        <p>内置助手通过检查工具回答当前工作表的问题——默认只读。你的 OpenAI 兼容端点、你的密钥、你的电脑;会话仅存内存。完全不配置,应用照样全功能可用。</p>
+      </div>
+      <div class="feat">
+        <span class="k">Agent</span>
+        <h3>每个操作都是命令</h3>
+        <p>每个按钮、菜单项、对话框与按键都是带稳定 ID 与撤销的命令——CLI、JSON 控制通道与 MCP 服务器都能驱动,人、脚本与 AI 代理说的是同一套动词。</p>
+      </div>
+      <div class="feat">
+        <span class="k">快速</span>
+        <h3>为大表而生</h3>
+        <p>写时复制让撤销快照几乎免费;增量重算只算改过的部分;虚拟化网格只排版屏幕上的内容。纯 Rust,没有半点 Electron。</p>
+      </div>
+      <div class="feat">
+        <span class="k">开源</span>
+        <h3>免费且开放</h3>
+        <p>MIT 或 Apache-2.0,任你选择。桌面与网页同一套 Rust 代码——无订阅、无许可服务器、无遥测。源代码公开,本页的每一句话都可以被检验。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIVACY -->
+  <section id="privacy">
+    <div class="sec-head rv"><span class="idx">03</span><h2>默认保护隐私</h2></div>
+    <div class="privacy-band rv">
+      <div>
+        <h2>无账号。无云端。<em>无追踪。</em></h2>
+        <p>KenjaGrid 像一件好工具那样工作——在你的电脑上完成计算,不与任何人通信。工作簿从不上传;唯一的网络用途是你自行配置的可选 AI 聊天,而且直达你指定的端点。它的 Agent 接口严格限于本地:走标准输入输出的 MCP 服务器,以及只监听 127.0.0.1 的控制通道。源代码公开,这些话你不必只听我们说。</p>
+        <p style="margin-top:18px"><a href="privacy.html" style="color:var(--amber-soft)">阅读隐私政策 →</a></p>
+      </div>
+      <div class="pill-list">
+        <div class="pill"><span class="tick">✓</span><span><b>工作簿:</b>从不上传</span></div>
+        <div class="pill"><span class="tick">✓</span><span><b>账号与统计:</b>没有</span></div>
+        <div class="pill"><span class="tick">✓</span><span><b>AI 聊天:</b>你的端点、你的密钥、你的电脑</span></div>
+        <div class="pill"><span class="tick">✓</span><span><b>遥测:</b>永远没有</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="sec-head rv"><span class="idx">04</span><h2>常见问题</h2></div>
+    <div class="faq rv">
+      <details open>
+        <summary>KenjaGrid 会上传我的工作簿吗?</summary>
+        <p>不会。创建、编辑、计算、格式化、制图与导出全部在你的电脑本地完成。应用自身不发起任何网络流量——唯一发出的流量是你触发的 AI 聊天请求,直接发往你自己配置的端点。KenjaGrid 是开源软件,这一切你都可以在公开代码里亲自验证。</p>
+      </details>
+      <details>
+        <summary>AI 助手能修改我的工作簿吗?</summary>
+        <p>默认不能。助手通过检查工具——工作簿或工作表概要、单元格读取、文本搜索——回答关于当前工作簿的问题,只读是默认模式。只有当你显式切换到某一种编辑模式后,它才可能修改内容。会话仅存于内存;网页版中 AI 助手不可用。</p>
+      </details>
+      <details>
+        <summary>可以使用哪些 AI 模型?</summary>
+        <p>任何你自行配置的 OpenAI 兼容端点:OpenAI、DeepSeek、Qwen,或 Ollama、LM Studio 等本地服务。API 密钥保存在你的电脑上,只在你发送消息时发往你配置的基础 URL。完全不配置 AI,应用的所有功能照常可用。</p>
+      </details>
+      <details>
+        <summary>KenjaGrid 能打开我的 Excel 文件吗?</summary>
+        <p>可以。XLSX 是原生格式:样式、主题、公式(含动态数组)、表格、条件格式、验证、批注、超链接、图表、图片、迷你图、数据透视表与打印设置全部双向往返。还能读写 CSV 与 TSV,打开旧版 97-2003 .xls 工作簿的数值、公式与数字格式,并导入 XLSB 与 ODS 文件中的工作表数据。</p>
+      </details>
+      <details>
+        <summary>KenjaGrid 支持哪些平台?</summary>
+        <p>原生 macOS(Apple 芯片与 Intel,已签名公证)、Windows(x64、arm64 与 x86,已代码签名)、Linux(AppImage、Flatpak、deb、rpm 与 tarball,x86_64 与 ARM64)、FreeBSD,以及基于 WebAssembly 的网页版。</p>
+      </details>
+      <details>
+        <summary>KenjaGrid 真的免费吗?</summary>
+        <p>免费——MIT 或 Apache-2.0 开源许可,任你选择。无订阅、无许可服务器、无遥测。它仍在积极开发中(alpha):核心表格工作流已完整可用,兼容深度在公开路线图下持续增长。</p>
+      </details>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <a class="logo" href="/"><span class="dot"></span>KenjaGrid</a>
+      <small>© 2026 KenjaHub · 智者之格</small>
+    </div>
+    <nav>
+      <a href="privacy.html">隐私政策</a>
+      <a href="https://github.com/KenjaHub" rel="noopener">GitHub</a>
+      <a href="https://github.com/koihuang/KenjaGrid" rel="noopener">源代码</a>
+      <a href="https://github.com/koihuang/KenjaGrid/issues" rel="noopener">支持</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.addEventListener('click',e=>{document.querySelectorAll('details.lang-menu[open]').forEach(d=>{if(!d.contains(e.target))d.removeAttribute('open')})});
+</script>
+</body>
+</html>
