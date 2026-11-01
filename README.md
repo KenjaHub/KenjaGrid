@@ -9,9 +9,9 @@ Windows, Linux and BSD, and in the browser via WebAssembly.
 
 *Your numbers. Your machine. No subscription.*
 
-**[App repository](https://github.com/koihuang/KenjaGrid) · [Privacy Policy](privacy.md) · [Support](https://github.com/koihuang/KenjaGrid/issues)**
+**[Privacy Policy](privacy.md)**
 
-**Free and open source (MIT / Apache-2.0) — download the latest release on GitHub.**
+**Free and open source (MIT / Apache-2.0).**
 
 </div>
 
@@ -37,7 +37,7 @@ BSD 上原生运行，并通过 WebAssembly 在浏览器中运行。快速（增
 （XLSX 原生格式）、Agent 友好（MCP 服务器、CLI、本地 JSON 控制通道）。无账号、无遥测、
 无追踪；工作簿从不出你的设备。
 
-**[应用仓库](https://github.com/koihuang/KenjaGrid) · [隐私政策](privacy.md) · [支持 / 反馈](https://github.com/koihuang/KenjaGrid/issues)**
+**[隐私政策](privacy.md)**
 
 ---
 
@@ -52,13 +52,11 @@ The site lives in `docs/`, matching the sibling KenjaPDF-site / KenjaDeck-site:
 - Served by GitHub Pages from branch `main`, folder `/docs` (repo Settings → Pages):
   EN at `index.html`, 简体中文 at `zh.html`, 日本語 at `ja.html`, privacy at `privacy.html`,
   plus `CNAME`, `robots.txt`, `sitemap.xml` and `llms.txt`. Screenshots in `docs/assets/`
-  are the original app screenshots from the app repository's README.
+  are original screenshots made with KenjaGrid itself.
 - DNS: `kenjagrid.kofukuai.com` CNAME → `KenjaHub.github.io`.
 - Privacy policy URL (declared wherever the app is distributed):
   `https://kenjagrid.kofukuai.com/privacy.html`; marketing URL:
   `https://kenjagrid.kofukuai.com`.
-- The app repository (source, releases, screenshots) is
-  [koihuang/KenjaGrid](https://github.com/koihuang/KenjaGrid).
 
 ---
 
